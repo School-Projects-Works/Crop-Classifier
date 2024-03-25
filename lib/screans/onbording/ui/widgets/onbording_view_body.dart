@@ -168,6 +168,9 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                             ),
                           ),
                         ),
+                        SizedBox(
+                          height: 25.h,
+                        ),
                       ],
                     ),
                   ),
