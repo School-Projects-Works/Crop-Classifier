@@ -7,6 +7,7 @@ String? usertoken;
 bool? onBording;
 
 String? fullname;
+String geminiBASEURL = 'https://generativelanguage.googleapis.com/v1beta';
 
 Future<Map<String, dynamic>> fetchDataFromLocalStorage() async {
   onBording = await LocalServices.getData(key: 'onbording');

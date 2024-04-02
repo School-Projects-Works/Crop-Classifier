@@ -113,7 +113,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                     child: Column(
                       children: [
                         SizedBox(
-                          height: 40.h,
+                          height: 30.h,
                         ),
                         FadeInLeft(
                           child: Text(
@@ -123,7 +123,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                           ),
                         ),
                         SizedBox(
-                          height: 25.h,
+                          height: 15.h,
                         ),
                         FadeInLeft(
                           child: Text(
@@ -133,7 +133,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                           ),
                         ),
                         SizedBox(
-                          height: 20.h,
+                          height: 15.h,
                         ),
                         FadeInRight(
                           child: Container(
@@ -167,9 +167,6 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                                     ),
                             ),
                           ),
-                        ),
-                        SizedBox(
-                          height: 25.h,
                         ),
                       ],
                     ),

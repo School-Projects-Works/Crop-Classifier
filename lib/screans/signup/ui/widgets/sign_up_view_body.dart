@@ -71,7 +71,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
         var signUpCubite = BlocProvider.of<SignUpCubit>(context);
         return Padding(
           padding:
-              EdgeInsets.symmetric(horizontal: 18.w, vertical: 40.h).copyWith(
+              EdgeInsets.symmetric(horizontal: 18.w, vertical: 30.h).copyWith(
             bottom: 0,
           ),
           child: SingleChildScrollView(
@@ -88,7 +88,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                     ),
                   ),
                   SizedBox(
-                    height: 20.h,
+                    height: 10.h,
                   ),
                   Text(
                     'Log In To Your Account',
@@ -102,7 +102,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                     style: AppStyle.font16Greyregular,
                   ),
                   SizedBox(
-                    height: 30.h,
+                    height: 20.h,
                   ),
                   FadeInRight(
                     child: const SignUpForm(),

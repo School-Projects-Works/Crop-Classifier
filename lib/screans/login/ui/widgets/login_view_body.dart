@@ -126,7 +126,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                     ),
                   ),
                   SizedBox(
-                    height: 80.h,
+                    height: 60.h,
                   ),
                   CustomBottom(
                     bottomtext: 'Login',
@@ -143,7 +143,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                     backgroundColor: ColorManger.primaryColor,
                   ),
                   SizedBox(
-                    height: 60.h,
+                    height: 40.h,
                   ),
                   Text(
                     'Don’t have account?',
