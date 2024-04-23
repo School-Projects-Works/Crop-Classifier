@@ -33,8 +33,7 @@ class Data {
   String? reportpath;
 
   Data.fromJson(Map<String, dynamic> json) {
-    confidence =
-        json['confidence'] != null ? json['confidence']!.toDouble() : null;
+    confidence = json['confidence']?.toDouble();
     description = json['discription'];
     image = json['image'];
     predictions = json['predictions'];
