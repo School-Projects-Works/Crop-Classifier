@@ -1,4 +1,4 @@
-const baseUrl = 'https://734a-156-203-172-245.ngrok-free.app/';
+const baseUrl = 'https://dc13-156-203-128-8.ngrok-free.app/';
 
 const loginendpoint = 'login';
 
@@ -11,3 +11,5 @@ const plantsendPoint = 'plants';
 const weatherendPoint = 'get-weather';
 
 const classifyendPoint = 'classify';
+
+const chatendpoint = 'chat';
