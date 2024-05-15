@@ -47,6 +47,7 @@ Welcome to GreenLeafApp, the all-in-one solution for modern agriculture. GreenLe
   </a>  
 
 
+<div align="start">
 
 ## Features
 
