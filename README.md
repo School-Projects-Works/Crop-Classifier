@@ -87,9 +87,9 @@ We welcome contributions to Greenleaf. To contribute, please follow these steps:
 
 
 
-  |                                                       HomeResult                                                   | Ai Chat |            
-  |:---------------------------------------------------------------------------------------------------------------------------: | ------------------------------------------------------------------------------------------------------- |
-| <img width="351" alt="store" src="https://github.com/shadymohamed532001/GreeanLeaf/assets/126605393/3b0bcd61-9d7f-47dd-915e-89f614818be4"> |     <img width="351" alt="explor" src="https://github.com/shadymohamed532001/GreeanLeaf/assets/126605393/9ffebdd9-f838-45a6-bd54-7fda53f9af79">    |
+  |                                                       HomeResult                                                   | Ai Chat |         bottom Sheet |   
+  |:---------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------: |------------------------------------------------------------------------------------------------------- |
+| <img width="351" alt="store" src="https://github.com/shadymohamed532001/GreeanLeaf/assets/126605393/3b0bcd61-9d7f-47dd-915e-89f614818be4"> |     <img width="351" alt="explor" src="https://github.com/shadymohamed532001/GreeanLeaf/assets/126605393/9ffebdd9-f838-45a6-bd54-7fda53f9af79">    | <img width="351" alt="explor" src="https://github.com/shadymohamed532001/GreeanLeaf/assets/126605393/3f4b55a2-5b6d-438f-8e2d-ddd621362217"> |
 
 
 
