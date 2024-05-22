@@ -9,7 +9,7 @@
 
 <div align="start">
   
-# 📱  GreenLeafApp App
+# 📱  GreenLeaf App
 
 Welcome to GreenLeafApp, the all-in-one solution for modern agriculture. GreenLeafApp empowers farmers and gardeners with advanced technology to enhance their farming experience and ensure optimal plant health. Simply take a photo of a plant leaf using the app, and GreenLeafApp will analyze the image to determine if the plant has any diseases, providing instant and accurate feedback. Easily save the diagnosis results as a PDF for future reference, and keep a detailed record of your plant health assessments. Have questions about your plants? GreenLeafApp’s expert chatbot is available 24/7 to provide instant replies and advice on plant care, disease management, and more. With a user-friendly interface, cutting-edge machine learning algorithms, and comprehensive plant care information, GreenLeafApp ensures your plants thrive. Download GreenLeafApp today and take a proactive approach to plant health. Whether you’re managing a small garden or a large farm, GreenLeafApp is your trusted partner in achieving agricultural success.
 
