@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:greanleaf/shared/helper/naviagtion_extentaions.dart';
 import 'package:greanleaf/shared/utils/app_colors.dart';
 import 'package:greanleaf/shared/utils/app_image_assets.dart';
 import 'package:greanleaf/shared/utils/app_styles.dart';
@@ -37,15 +38,19 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                 color: ColorManger.whiteColor,
               ),
             ),
+            
           );
         } else if (state is UploadAndGetResponseToModelSucsesState) {
           if (state.classfictionModel.status == true) {
             Navigator.of(context)
                 .pop(); // close the dialog if successfully logged in
-            showTouster(
-              massage: state.classfictionModel.message!,
-              state: ToustState.SUCCESS,
-            );
+     {
+              context.pop();
+              showTouster(
+                massage: state.classfictionModel.message!,
+                state: ToustState.SUCCESS,
+              );
+            }
           }
         }
         if (state is UploadAndGetResponseToModelErrorState) {
@@ -63,11 +68,10 @@ class _HomeViewBodyState extends State<HomeViewBody> {
           child: Column(
             children: [
               PrimaryHeaderContiner(
-                height: MediaQuery.of(context).size.height * 0.16,
+                height: MediaQuery.of(context).size.height * 0.18,
                 child: SafeArea(
                   child: Padding(
-                    padding:
-                        EdgeInsets.only(left: 16.w, right: 16.w, top: 16.h),
+                    padding: EdgeInsets.only(left: 16.w, right: 16.w, top: 8.h),
                     child: Column(
                       children: [
                         SizedBox(

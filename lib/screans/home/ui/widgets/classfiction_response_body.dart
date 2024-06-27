@@ -1,11 +1,10 @@
+
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:dio/dio.dart';
 import 'package:downloads_path_provider_28/downloads_path_provider_28.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:greanleaf/screans/home/logic/cubit/home_cubit.dart';
 import 'package:greanleaf/screans/home/models/classfiction_model.dart';
 import 'package:greanleaf/shared/networking/end_boint.dart';
 import 'package:greanleaf/shared/utils/app_colors.dart';
@@ -14,14 +13,17 @@ import 'package:permission_handler/permission_handler.dart';
 
 class ClassfictionResponseBody extends StatelessWidget {
   const ClassfictionResponseBody({
-    super.key,
+    Key? key,
     required this.classfictionModel,
-  });
+  }) : super(key: key);
+
   final ClassfictionModel classfictionModel;
 
   @override
   Widget build(BuildContext context) {
-    final image = BlocProvider.of<HomeCubit>(context).image;
+    final imageUrl = classfictionModel.data!.image != null
+        ? '$baseUrl${classfictionModel.data!.image}'
+        : null;
 
     return Container(
       width: double.infinity,
@@ -41,10 +43,8 @@ class ClassfictionResponseBody extends StatelessWidget {
               radius: 62,
               backgroundColor: ColorManger.whiteColor,
               child: CircleAvatar(
-                // Make it in chased network image
-                backgroundImage: image != null
-                    ? NetworkImage('$baseUrl${classfictionModel.data!.image}')
-                    : null,
+                backgroundImage:
+                    imageUrl != null ? NetworkImage(imageUrl) : null,
                 backgroundColor: Colors.transparent,
                 radius: 44,
               ),
@@ -55,142 +55,124 @@ class ClassfictionResponseBody extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(
-                  height: 60.h,
-                ),
+                SizedBox(height: 60.h),
                 Text(
                   classfictionModel.data!.predictions!,
                   style: AppStyle.font16blacksemibold,
                 ),
-                SizedBox(
-                  height: 20.h,
-                ),
-                Expanded(
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'About this palnt:',
-                            style: AppStyle.font14blackmedium,
-                          ),
-                          SizedBox(
-                            height: 35.h,
-                            child: TextButton(
-                              onPressed: () async {
-                                await saveAsPDF(context, classfictionModel);
-                              },
-                              child: Text(
-                                'Save as PDF',
-                                style: AppStyle.font16blacksemibold,
+                SizedBox(height: 15.h),
+                if (classfictionModel.data!.predictions ==
+                    "Image is not a plant")
+                  const Row(
+                    children: [],
+                  ),
+                if (classfictionModel.data!.predictions !=
+                    "Image is not a plant")
+                  Expanded(
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'About this plant:',
+                              style: AppStyle.font14blackmedium,
+                            ),
+                            SizedBox(
+                              height: 35.h,
+                              child: TextButton(
+                                onPressed: () async {
+                                  await saveAsPDF(context, classfictionModel);
+                                },
+                                child: Text(
+                                  'Save as PDF',
+                                  style: AppStyle.font16blacksemibold,
+                                ),
                               ),
                             ),
+                          ],
+                        ),
+                        SizedBox(height: 5.h),
+                        Expanded(
+                          child: Text(
+                            classfictionModel.data!.description!,
+                            style: AppStyle.font12Greymedium,
                           ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 5.h,
-                      ),
-                      Expanded(
-                        child: Text(
-                          classfictionModel.data!.description!,
-                          style: AppStyle.font12Greymedium,
                         ),
-                      ),
-                      Divider(
-                        height: 5.h,
-                        thickness: 0.5,
-                      )
-                    ],
+                        Divider(height: 0.h, thickness: 0.5),
+                      ],
+                    ),
                   ),
-                ),
-                Expanded(
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 5.h,
-                      ),
-                      Align(
-                        alignment: Alignment.bottomLeft,
-                        child: Text(
-                          'Temperature:',
-                          style: AppStyle.font14blackmedium,
+                if (classfictionModel.data!.predictions !=
+                    "Image is not a plant") ...[
+                  SizedBox(height: 5.h),
+                  Expanded(
+                    child: Column(
+                      children: [
+                        SizedBox(height: 5.h),
+                        Align(
+                          alignment: Alignment.bottomLeft,
+                          child: Text(
+                            'Temperature:',
+                            style: AppStyle.font14blackmedium,
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        height: 5.h,
-                      ),
-                      Expanded(
-                        child: Text(
-                          classfictionModel.data!.temperature!,
-                          style: AppStyle.font12Greymedium,
+                        SizedBox(height: 5.h),
+                        Expanded(
+                          child: Text(
+                            classfictionModel.data!.temperature!,
+                            style: AppStyle.font12Greymedium,
+                          ),
                         ),
-                      ),
-                      Divider(
-                        height: 5.h,
-                        thickness: 0.5,
-                      )
-                    ],
+                        Divider(height: 5.h, thickness: 0.5),
+                      ],
+                    ),
                   ),
-                ),
-                Expanded(
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 5.h,
-                      ),
-                      Align(
-                        alignment: Alignment.bottomLeft,
-                        child: Text(
-                          'Sunlight:',
-                          style: AppStyle.font14blackmedium,
+                  Expanded(
+                    child: Column(
+                      children: [
+                        SizedBox(height: 5.h),
+                        Align(
+                          alignment: Alignment.bottomLeft,
+                          child: Text(
+                            'Sunlight:',
+                            style: AppStyle.font14blackmedium,
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        height: 5.h,
-                      ),
-                      Expanded(
-                        child: Text(
-                          classfictionModel.data!.sunlight!,
-                          style: AppStyle.font12Greymedium,
+                        SizedBox(height: 5.h),
+                        Expanded(
+                          child: Text(
+                            classfictionModel.data!.sunlight!,
+                            style: AppStyle.font12Greymedium,
+                          ),
                         ),
-                      ),
-                      Divider(
-                        height: 5.h,
-                        thickness: 0.5,
-                      )
-                    ],
+                        Divider(height: 5.h, thickness: 0.5),
+                      ],
+                    ),
                   ),
-                ),
-                Expanded(
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 5.h,
-                      ),
-                      Align(
-                        alignment: Alignment.bottomLeft,
-                        child: Text(
-                          'Watering:',
-                          style: AppStyle.font14blackmedium,
+                  Expanded(
+                    child: Column(
+                      children: [
+                        SizedBox(height: 5.h),
+                        Align(
+                          alignment: Alignment.bottomLeft,
+                          child: Text(
+                            'Watering:',
+                            style: AppStyle.font14blackmedium,
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        height: 5.h,
-                      ),
-                      Expanded(
-                        child: Text(
-                          classfictionModel.data!.watering!,
-                          style: AppStyle.font12Greymedium,
+                        SizedBox(height: 5.h),
+                        Expanded(
+                          child: Text(
+                            classfictionModel.data!.watering!,
+                            style: AppStyle.font12Greymedium,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-                SizedBox(
-                  height: 15.h,
-                ),
+                  SizedBox(height: 15.h),
+                ],
               ],
             ),
           )
@@ -220,7 +202,7 @@ class ClassfictionResponseBody extends StatelessWidget {
         }
       }
     } else {
-      showCustomSnackBar(context, 'Permission Denied !');
+      showCustomSnackBar(context, 'Permission Denied!');
     }
   }
 
