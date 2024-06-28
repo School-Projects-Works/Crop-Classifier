@@ -34,27 +34,27 @@ class _HomeViewBodyState extends State<HomeViewBody> {
           showDialog(
             context: context,
             builder: (_) => Center(
-              child: CircularProgressIndicator(
+              child:  CircularProgressIndicator(
                 color: ColorManger.whiteColor,
               ),
             ),
-            
           );
         } else if (state is UploadAndGetResponseToModelSucsesState) {
           if (state.classfictionModel.status == true) {
-            Navigator.of(context)
-                .pop(); // close the dialog if successfully logged in
-     {
-              context.pop();
+            Navigator.of(context).pop();
+
+            
+            {
               showTouster(
                 massage: state.classfictionModel.message!,
                 state: ToustState.SUCCESS,
               );
+
             }
           }
         }
         if (state is UploadAndGetResponseToModelErrorState) {
-          Navigator.of(context).pop(); // close the dialog if login fails
+          Navigator.of(context).pop();
           showTouster(
             massage: state.errorMessage,
             state: ToustState.ERROR,
