@@ -26,10 +26,10 @@ class LoginCubit extends Cubit<LoginState> {
 
     try {
       // Create form data for API request
-      FormData formData = FormData.fromMap({
+      Map<String,dynamic> formData = {
         'email': email,
         'password': password,
-      });
+      };
 
       // Send post request to sign-in endpoint
       var response = await ApiServices.postFormData(

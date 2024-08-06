@@ -9,11 +9,7 @@ import 'package:greanleaf/shared/routing/app_routes.dart';
 import 'package:greanleaf/screans/home/logic/cubit/home_cubit.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  Bloc.observer = MyBlocObserver();
-  ApiServices.init();
-  await LocalServices.init();
-  fetchDataFromLocalStorage();
+  await ApiServices.init();
   runApp(const MyApp());
 }
 

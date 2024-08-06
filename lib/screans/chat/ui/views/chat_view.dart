@@ -94,9 +94,9 @@ void onSend(ChatMessage message) async {
           .map<String>((message) => message['content'].toString())
           .toList();
       String concatenatedText = texts.join(' ');
-      FormData formData = FormData.fromMap({
+      var formData = {
         'message': concatenatedText,
-      });
+      };
 
       var response = await ApiServices.postFormData(
           endpoint: chatendpoint, formData: formData, token: token);

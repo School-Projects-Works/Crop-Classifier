@@ -29,13 +29,13 @@ class SignUpCubit extends Cubit<SignUpState> {
 
     try {
       // Create form data for API request
-      FormData formData = FormData.fromMap({
+      Map<String,dynamic> formData = {
         'email': email,
         'password': password,
         'fullName': fullName,
         'phoneNumber': phoneNumber,
         'city': city,
-      });
+      };
 
       // Send post request to sign-up endpoint
       var response = await ApiServices.postFormData(

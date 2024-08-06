@@ -140,7 +140,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                           newRoute: Routes.loginViewsRoute);
                     },
                     child: Text(
-                      'Login',
+                      'Sign Up',
                       style: AppStyle.font14Primarysemibold,
                     ),
                   ),

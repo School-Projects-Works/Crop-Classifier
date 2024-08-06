@@ -83,7 +83,7 @@ class _SignUpFormState extends State<SignUpForm> {
                   ? const Icon(Icons.visibility_off)
                   : const Icon(Icons.visibility),
             ),
-            hintText: 'Min 6 Cyfr',
+            hintText: 'Min 6 characters',
             keyboardType: TextInputType.visiblePassword,
             controller: signUpCubit.passwordController,
             validator: (text) {

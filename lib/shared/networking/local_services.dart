@@ -8,7 +8,8 @@ class LocalServices {
     sharedPreferences = await SharedPreferences.getInstance();
   }
 
-  static dynamic getData({required String key}) {
+  static dynamic getData({required String key})async {
+    sharedPreferences = await SharedPreferences.getInstance();
     return sharedPreferences.get(key);
   }
 
@@ -16,6 +17,7 @@ class LocalServices {
     required String key,
     required dynamic value,
   }) async {
+    sharedPreferences = await SharedPreferences.getInstance();
     if (value is String) return await sharedPreferences.setString(key, value);
     if (value is int) return await sharedPreferences.setInt(key, value);
     if (value is bool) return await sharedPreferences.setBool(key, value);
@@ -31,7 +33,8 @@ class LocalServices {
     return await sharedPreferences.setDouble(key, value);
   }
 
-  static Future<bool> removeData({required String key}) {
+  static Future<bool> removeData({required String key}) async{
+    sharedPreferences = await SharedPreferences.getInstance();
     return sharedPreferences.remove(key);
   }
 }
